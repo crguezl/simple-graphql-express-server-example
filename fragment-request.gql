@@ -1,0 +1,29 @@
+fragment studentInfo on Student {
+  Nombre
+  AluXXXX
+}
+
+query ctrlBarra($id1: String!, $id2: String!) {
+  # fragment example
+  
+  left: student(AluXXXX: $id1) {
+    ... studentInfo
+  }
+  
+  right: student(AluXXXX: $id2) {
+    ... studentInfo
+  }
+}
+
+query dmsi {
+  students {
+    Nombre
+  }
+}
+
+#### variables
+
+{
+  "id1": "alu0101228587",
+  "id2": "Alu0101232812"
+}

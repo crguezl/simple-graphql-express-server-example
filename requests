@@ -1,0 +1,78 @@
+
+fragment studentInfo on Student {
+  Nombre
+  AluXXXX
+}
+
+query ctrlBarra($myId: String!) {
+  # fragment example
+  students {
+    ... studentInfo 
+  }
+  
+  student(AluXXXX: $myId) {
+    markdown
+    Nombre
+  }
+}
+
+query GetScheme {
+  __schema {
+    queryType {
+      name
+      kind
+    }
+  }
+}
+
+
+query Estudiantes {
+  students {
+    Nombre
+    AluXXXX
+    markdown
+  }
+}
+
+mutation CreaEstudiante($teacher: String!) {
+  addStudent(AluXXXX: $teacher, Nombre: "Casiano") {
+    AluXXXX
+    Nombre
+  }
+}
+
+mutation ponNota($alu: String!, $nota: String!) {
+  setMarkdown(AluXXXX: $alu, markdown: $nota) {
+    AluXXXX
+    Nombre
+    markdown
+  }
+}
+
+query Estudiante($alu: String!) {
+  student(AluXXXX: $alu) {
+    Nombre
+    markdown
+  }
+}
+
+query StudentType {
+  __type(name: "Student") {
+    name
+    fields {
+      description
+      name
+      type {
+        name
+      }
+    }
+  }
+}
+
+ Variables
+ {
+   "alu": "alu010059230",
+   "teacher": "crguezl",
+   "nota": "NO APTO",
+   "myId": "alu0101523644"
+ }
