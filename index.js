@@ -104,7 +104,9 @@ async function main () {
         graphqlHTTP((request, response, next) => ({
           schema: AluSchema,
           rootValue: root,
-          graphiql: true,
+          graphiql: {
+            defaultQuery: '# Welcome to our GraphiQL server for this Simple GraphQL Server exercise!\n# See the scheme on the Docs button on the right'
+          },
           context: { classroom: classroom, req: request, res: response }
         })),
       );
