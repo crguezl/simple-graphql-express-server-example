@@ -8,7 +8,7 @@ const { buildSchema } = require("graphql")
 const port = process.argv[2] || 4006;
 
 const csvFilePath = process.argv[3] || 'DMSI-2122.csv'
-const data = String(fs.readFileSync(csvFilePath))
+const data = String(fs.readFileSync('fragment-request.gql'))
 //console.log(data);
 
 const csv=require('csvtojson')
@@ -105,7 +105,8 @@ async function main () {
           schema: AluSchema,
           rootValue: root,
           graphiql: {
-            defaultQuery: '# Welcome to our GraphiQL server for this Simple GraphQL Server exercise!\n# See the scheme on the Docs button on the right'
+            defaultQuery: data,
+            headerEditorEnabled: true,
           },
           context: { classroom: classroom, req: request, res: response }
         })),
