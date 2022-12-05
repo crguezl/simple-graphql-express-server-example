@@ -89,6 +89,7 @@ async function main () {
         },
         setMarkdown: ({AluXXXX, markdown}) => {
             let result = classroom.findIndex(s => s["AluXXXX"] === AluXXXX)
+            console.log(`Updating ${AluXXXX} with ${markdown}`)
             if (result === -1) {
               let message = `${AluXXXX} not found!`
               console.log(message);

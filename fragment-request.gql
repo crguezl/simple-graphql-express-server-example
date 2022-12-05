@@ -1,3 +1,10 @@
+
+query dmsi {
+  students {
+    Nombre
+  }
+}
+
 fragment studentInfo on Student {
   Nombre
   AluXXXX
@@ -15,14 +22,70 @@ query ctrlBarra($id1: String!, $id2: String!) {
   }
 }
 
-query dmsi {
+
+query Estudiantes {
   students {
+    Nombre
+    AluXXXX
+    markdown
+  }
+}
+
+mutation CreaEstudiante($teacher: String!) {
+  addStudent(AluXXXX: $teacher, Nombre: "Casiano") {
+    AluXXXX
     Nombre
   }
 }
 
-#### variables
-# {
-#   "id1": "alu0101228587",
-#   "id2": "Alu0101232812"
-# }
+mutation ponNota($alu: String!, $nota: String!) {
+  setMarkdown(AluXXXX: $alu, markdown: $nota) {
+    AluXXXX
+    Nombre
+    markdown
+  }
+}
+
+query Estudiante($alu: String!) {
+  student(AluXXXX: $alu) {
+    Nombre
+    markdown
+  }
+}
+
+query StudentType {
+  __type(name: "Student") {
+    name
+    fields {
+      description
+      name
+      type {
+        name
+      }
+    }
+  }
+}
+
+
+query GetScheme {
+  __schema {
+    queryType {
+      name
+      kind
+    }
+  }
+}
+
+
+# Variables: copia en Query Variables
+{
+   "teacher": "crguezl",
+   "nota": "NO APTO",
+   "myId": "aluNuevo",
+   "id1": "alu0101228587",
+   "id2": "Alu0101232812"
+}
+
+
+
+
