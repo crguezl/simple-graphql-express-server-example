@@ -83,8 +83,10 @@ query GetScheme {
    "nota": "NO APTO",
    "myId": "aluNuevo",
    "id1": "alu0101228587",
-   "id2": "Alu0101232812"
+   "id2": "Alu0101232812",
+   "alu": "232566@studenti.unimore.it"
 }
+
 
 
 
